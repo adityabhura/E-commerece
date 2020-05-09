@@ -1,0 +1,12 @@
+<%- include("partials/header") %><
+
+<div class="products">
+    <h1><%= order.product.title %></h1> 
+</div>
+<form action="/profiles/<%=currentUser._id %>/ordered/<%=order._id %>/track?_method=PUT" method="POST">
+<input type="text" name="track">
+<button>Submit</button>
+</form>
+
+
+<%- include("partials/footer") %>

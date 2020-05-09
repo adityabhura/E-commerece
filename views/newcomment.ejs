@@ -1,0 +1,15 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">New Comment for <%= product.title %></div>
+    <form action="/products/<%= product._id %>/comment"  method="POST" class="ui form">
+        <div class="field">
+            <label>Comment</label>
+            <input type="text" name="comment[title]" placeholder="Text" required>
+        </div>
+        <button class="ui blue basic button">Submit</button>
+    </form>
+</div>
+
+
+<%- include("partials/footer") %>

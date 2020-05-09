@@ -1,0 +1,31 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">New Product</div>
+    <form action="/products" method="POST" class="ui form" enctype="multipart/form-data">
+        <div class="field">
+        <label>Title</label>
+        <input type="text" name="title" placeholder="Title" required>
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input type="file" name="image" multiple> 
+        </div>
+        <div class="field">
+            <label>Quantity</label>
+            <input type="number" name="quantity" placeholder="quantity" oninvalid="alert('Invalid Input Format')" min="1">
+        </div>
+        <div class="field">
+            <label>Amount</label>
+            Rs <input type="number" name="amount" placeholder="Amount" oninvalid="alert('Invalid Input Format')" min="1">
+        </div>
+        <div class="field">
+            <label>Product Deccription</label>
+            <textarea name="description" required></textarea>
+        </div>
+        <button class="ui blue basic button">Submit</button>
+    </form>
+</div>
+
+
+<%- include("partials/footer") %>

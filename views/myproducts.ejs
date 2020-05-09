@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+
+<div class="products">
+   <% user.myproducts.forEach(function(product){ %>
+      <div class="column">
+         <div class="ui link cards">
+             <div class ="card">
+                 <div class="image">
+                     <img src="../../<%= product.image[0] %>">
+                 </div>  
+                 <div class="content">
+                     <div class="header"><%= product.title %></div>
+                     <div class="meta">Uploaded on <%= product.Created.toDateString() %></div>
+                 </div>
+                 <div class="extra content">
+                     <a href="/products/<%= product._id %>" class="right floated"><button class="ui inverted primary button">Show more</button></a>
+                     <div class="header">Rs <%= product.amount %></div>
+                 </div>         
+             </div>
+         </div>
+     </div>
+   <% }) %>
+</div>
+
+<%- include("partials/footer") %>

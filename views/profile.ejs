@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+
+<div class="products">
+    <h1><%= user.username %></h1>
+    <h1><%= user.email %></h1>
+    <h1><%= user.phoneNumber %></h1>
+</div>
+<% if(currentUser && user._id.equals(currentUser._id)){ %>
+    <div>
+        <button><a href="/profiles/<%= currentUser._id %>/myorders">See my ordered itmes</a></button>
+        <button><a href="/profiles/<%= currentUser._id %>/myproducts">See my uploaded itmes</a></button>
+        <button><a href="/profiles/<%= currentUser._id %>/ordered">Update the ordered itmes</a></button>
+    </div
+<% } %>
+
+
+<%- include("partials/footer") %>

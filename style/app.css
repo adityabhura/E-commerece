@@ -1,0 +1,21 @@
+i.icon{
+    font-size: 2em;
+}
+.container.main{
+    margin-top:5em;
+}
+.products{
+    position: relative;
+    margin-top: 5em;
+}
+
+#delete{
+ display: inline;
+}
+
+#flash{
+margin-top: 5em;
+margin-bottom:-4em;
+margin-left: 5em;
+margin-right: 5em;
+}

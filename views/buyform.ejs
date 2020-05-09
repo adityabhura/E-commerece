@@ -1,0 +1,15 @@
+<%- include("partials/header") %>
+
+<div class="products">
+    <form method="POST" id="buyform" action="/products/<%= product._id %>/buy/<%= currentUser._id %>?_method=PUT" class="ui form">
+        <div class="field">
+            <input type="number" name="product[quantity]" placeholder="Quantity" min="1" max="<%= product.quantity %>" oninvalid="alert('The quantity format is invalid or the amount of quantity input is not available')" required>
+        </div>
+        <div class="field">
+        <input type="text" name="address" placeholder="address" required>
+        </div>  
+        <button>Buy</button>
+    </form>
+</div>
+
+<%- include("partials/footer") %>

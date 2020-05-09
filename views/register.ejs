@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+<div class="products">
+<div class="ui main text container segment">
+    <div class="ui huge header">Register User</div>
+    <form action="/register"  method="POST" class="ui form">
+        <div class="field">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="username" oninvalid="alert('The format of email is invalid')" required>
+        </div>
+        <label>Email</label>
+        <input type="text" name="email" placeholder="Email" required>
+        <div class="field">
+            <label>Phone Number</label>
+            <input type="tel" name="phoneNumber" placeholder="Phone number" size="10" oninvalid="alert('The format of phone number is invalid')" required>
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <button class="ui blue basic button">Sign Up</button>
+    </form>
+</div>
+</div>
+
+<%- include("partials/footer") %>

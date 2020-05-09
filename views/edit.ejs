@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">New Product</div>
+    <form action="/products/<%= product._id %>?_method=PUT" method="POST" class="ui form">
+        <div class="field"> 
+        <label>Title</label>
+        <input type="text" name="product[title]" required value="<%= product.title %>">
+        </div>
+        <div class="field">
+            <label>product Content</label>
+            <textarea name="product[description]" required value="<%= product.description %>"></textarea>
+        </div>
+        <div class="field"> 
+            <label>Quantity</label>
+            <input type="number" name="product[quantity]" value="<%= product.quantity %>" min="1" oninvalid="alert('The quantity format is invalid or the amount of quantity input is not available')">
+            </div>
+            <div class="field"> 
+                <label>Amount</label>
+                Rs <input type="number" name="product[amount]" value="<%= product.amount %>"  min="1" oninvalid="alert('The Amount format is invalid or the amount of quantity input is not available')">
+                </div>
+        <button class="ui blue basic button">Update</button>
+    </form>
+</div>
+
+
+
+
+
+<%- include("partials/footer") %>

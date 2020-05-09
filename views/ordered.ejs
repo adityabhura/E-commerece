@@ -1,0 +1,16 @@
+<%- include("partials/header") %><
+
+<div class="products">
+    <h1>Ordered item</h1>
+    <% user.ordered.forEach(function(ordered){ %>
+        <p><%= ordered.product.title%></p>
+        <% if(ordered.status){ %>
+        <button><a href="/profiles/<%=currentUser._id %>/ordered/<%=ordered._id %>/track">Update Track details</a></button>
+        <% }else{ %>
+            <strong>Order Cancelled</strong>
+        <% } %>
+    <% }) %>
+</div>
+
+
+<%- include("partials/footer") %>

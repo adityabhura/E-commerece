@@ -1,0 +1,14 @@
+<%- include("partials/header") %><
+
+<div class="products">
+    <h1>Click OK to continue or GO BACK to go back</h1>
+    <form action="/profiles/<%= currentUser._id %>/myorders/<%= myorder._id %>/delete?_method=PUT" method="POST">
+        <button>OK</button>
+    </form>
+    <form action="/profiles/<%= currentUser._id %>/myorders" method="GET">
+        <button>BACK</button>
+    </form>
+</div>
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+
+<div class="products">
+   <% user.myorders.forEach(function(myorder){ %>
+        <h1><p><%= myorder.product.title %></p></h1>
+        <h3>Rs <%= myorder.amount %></h3>
+        <h3>Tracking details</h3>
+        <% myorder.track.forEach(function(track){ %>
+            <li><%= track.details %> <%= track.updated %></li>
+        <% }) %>
+        <% if(myorder.status){ %>
+            <a href="/profiles/<%= currentUser._id %>/myorders/<%= myorder._id %>/delete">
+                <button>CANCEL ORDER</button>
+            </a>
+        <% }else{ %>
+            <h3>Order canceled</h3>
+        <% } %>
+        <strong><%= myorder.updated %></strong>
+   <% }) %>
+   
+</div>
+
+<%- include("partials/footer") %>
+
+
+
+
+
+  

@@ -1,0 +1,68 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container">
+    <div class="ui huge header"><%= product.title %></div>
+    <div class="ui top attached center segment">
+       <% product.image.forEach(function(image){ %>
+        <div class="item">
+            <img src="../<%=image%>" class="ui centered rounded image">
+        </div>
+         <% }) %>
+       
+        <div class="content">
+            <span><%= product.Created.toDateString() %></span>
+        </div>
+        <div class="description">
+            <p><%= product.description %></p> 
+        </div>
+        <div class="description">
+            <p>Quantity Left <%= product.quantity %></p> 
+        </div>
+        <div class="description">
+            <p>Submitted By <a href="/profiles/<%= product.author.id %>"><%= product.author.username %></a></p> 
+        </div>
+        <div class="description">
+            <p><strong>Rs <%= product.amount %></strong></p> 
+        </div>  
+    </div>
+    
+    <!-- buy form -->
+    <% if(product.quantity > 0){ %>
+        <a href="/products/<%= product._id %>/buy">
+            <button>Buy</button>
+            </a>
+    <% }else{ %>
+        <h3>Sold Out</h3>
+    <% } %>
+    
+
+     <% if(product.author.id.equals(currentUser._id) && currentUser ){ %>
+    <a href="/products/<%= product._id %>/edit"><button class="ui blue basic button">Edit</button></a>
+    <form id="delete" action="/products/<%= product._id %>?_method=DELETE" method="POST">
+        <button class="ui red basic button">Delete</button>
+    </form>
+<% } %>
+<div>
+    <a href="/products/<%= product._id %>/comment/new"><button class="ui green basic button">Add Comment</button></a>
+</div>
+<div class="content">
+    <% product.comments.forEach(function(comment){ %>
+        <p><strong><%= comment.author.username %></strong></p>
+        <%= comment.title %>
+        <%= comment.date %>
+        <% if(comment.author.id.equals(currentUser._id) && currentUser ){ %>
+        <a href="/products/<%=product._id%>/comment/<%= comment._id%>/edit">
+            <button class="ui black basic button">Edit Comment</button>
+        </a>
+        <form action="/products/<%=product._id%>/comment/<%= comment._id%>?_method=DELETE" method="POST" id="delete">
+            <button class="ui black basic button">Delete Comment</button>
+        </form>
+        <% } %>
+    <% }) %>              
+</div>
+</div>
+
+
+<%- include("partials/footer") %>
+
+

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Order Manager</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" href="/app.css">
+    </head>
+    <body>
+        <div>
+    <div class="ui fixed inverted menu">
+            <div class="item">
+                <img class="ui mini image" src="../../uploads/imageWIN_20190802_08_54_23_Pro.jpg">
+            </div>
+            <a href="/" class="item">Home</a>
+            <a href="/products/new" class="item">Add New Product</a>
+         <div class="right menu">
+            <%  if(!currentUser){ %>
+            <a href="/register"class="item">Register</a>
+            <a href="/login"class="item">Login</a>
+           <% }else{ %>
+            <a href="/logout"class="item">Logout</a>
+            <a href="/profiles/<%= currentUser._id %>" class="item">View Profile</a>
+            <a href="#" class="item">Loged in as <%= currentUser.username %></a>
+            <% } %>
+        </div>
+    </div>
+    
+<% if(success && success.length>0){ %>
+    <div class="ui continer" id="flash">
+        <div class="ui postive message">
+            <div class="header">
+                <%= success %>
+            </div>
+            
+        </div>
+    </div>
+<% } %>
+  
+<% if(error && error.length>0){ %>
+    <div class="ui continer" id="flash">
+        <div class="ui warning message">
+            <div class="header">
+                <%= error %>
+            </div>
+        </div>
+    </div>   
+<% } %> 
